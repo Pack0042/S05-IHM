@@ -1,5 +1,5 @@
 // objeto do usuário
-const usuario = { nome: "Raphael", matricula: "123456", pendencia: false, acessibilidade: true };
+const usuario = { nome: "Patrick", matricula: "123456", pendencia: false, acessibilidade: true };
 
 // lista objetos de armários
 const armarios = [
@@ -30,6 +30,15 @@ function reservarArmario() {
   
   // Caso exista armário(s) disponíveil, seguimos sorteando uma opção. 
   let armarioSorteado = armariosDisponiveis[Math.floor(Math.random() * armariosDisponiveis.length)];
+
+  // Função para registrar a data/hora atual e a data/hora em 24 horas
+  let HoraReserva = new Date();
+  let HoraEntrega = new Date();
+  HoraEntrega.setHours(HoraReserva.getHours() + 24);
+
+  //Alterar o registro do armário
+  armarioSorteado.reserva = HoraReserva;
+  armarioSorteado.entrega = HoraEntrega;
   
   // Depois localizamos o armário emprestado na lista de armarios e mudamos o status do armário.
   let armarioEmprestado = armarios.find(armario => armario.id === armarioSorteado.id).status = false;
@@ -38,7 +47,7 @@ function reservarArmario() {
   usuario.pendencia = true;
   
   // Impmimimos uma mensagem de reserva para o usuário.
-  document.getElementById("resultado").innerText = `Olá, ${usuario.nome}! O armário ${armarioSorteado.id} foi reservado com sucesso!`;
+  document.getElementById("resultado").innerText = `Olá, ${usuario.nome}! O armário ${armarioSorteado.id} foi reservado com sucesso! Ele deverá ser entregue até as ${HoraEntrega.getHours()}:${HoraEntrega.getMinutes()} do dia ${HoraEntrega.toLocaleDateString()}`;
 
   console.log(usuario);
   console.log(armarios);
