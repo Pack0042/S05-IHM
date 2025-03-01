@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.container {
+    width: 100%;
+    max-width: 414px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: green;
+}
+
+.mensagens {
+    padding: 16px;
+    background-color: #ff99cc;
+}
+
+.aulas {
+    flex-grow: 1;
+    padding: 16px;
+    background-color: #99ff99;
+}
+
+.aula {
+    background-color: white;
+    padding: 12px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.noticias {
+    padding: 16px;
+    background-color: red;
+}
+
+.card-noticia {
+    background-color: white;
+    padding: 36px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
